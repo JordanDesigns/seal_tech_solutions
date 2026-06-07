@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Interlock Gallery — Seal Tech Solutions</title>
+  <meta name="description" content="Browse a gallery of completed interlock driveways, patios, walkways, repairs and sealing projects by Seal Tech Solutions across the Greater Toronto Area, Mississauga, Hamilton & surrounding towns and cities." />
+  <meta name="theme-color" content="#373938" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
+</head>
+<body>
+  <div class="scrim"></div>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled">
+    <div class="wrap">
+      <a href="index.html" class="logo" aria-label="Seal-Tech Solutions home">
+        <img class="logo-img" src="assets/sts-logo-dark.png" alt="Seal-Tech Solutions" />
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html" class="active">Our Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <div class="nav-cta"><a href="contact.html" class="btn">Get a Free Quote</a></div>
+      </nav>
+      <div class="nav-tools">
+        <a href="tel:+10000000000" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>(000) 000-0000</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="phero paver-bg">
+    <div class="hero__bg"></div>
+    <div class="wrap">
+      <div class="crumbs reveal"><a href="index.html">Home</a><span class="sep">/</span><span>Our Work</span></div>
+      <span class="eyebrow on-dark reveal" data-d="1" style="margin-top:18px">Portfolio</span>
+      <h1 class="reveal" data-d="1">Real projects. Real transformations.</h1>
+      <p class="reveal" data-d="2">A showcase of recent interlock installs, repairs and sealing work across the region. Click any project to take a closer look.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY — self-contained: plain images in normal flow, inline styles, no JS needed -->
+  <section class="section">
+    <div class="wrap">
+      <style>
+        .work-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:36px}
+        .work-card{flex:0 1 calc(33.333% - 16px);max-width:calc(33.333% - 16px);background:#fff;border:1px solid #e3e2df;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px -18px rgba(40,41,40,.22);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}
+        .work-card:hover{transform:translateY(-5px);box-shadow:0 24px 54px -20px rgba(40,41,40,.32)}
+        .work-ba{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+        .work-ba figure{margin:0;position:relative;background:#36352f}
+        .work-ba img{display:block;width:100%;height:220px;object-fit:cover}
+        .work-ba figcaption{position:absolute;top:10px;left:10px;background:rgba(28,29,28,.82);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 9px;border-radius:6px}
+        .work-ba .is-after figcaption{background:#837669}
+        .work-single img{display:block;width:100%;height:240px;object-fit:cover}
+        .work-info{padding:18px 20px 20px}
+        .work-info .wtag{display:inline-block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#6b6157;background:#ece6e0;padding:5px 11px;border-radius:999px}
+        .work-info b{display:block;font-family:'Archivo',sans-serif;font-size:1.12rem;color:#2c2d2c;margin-top:12px;letter-spacing:-.01em}
+        .work-info .desc{display:block;color:#595a57;font-size:.92rem;margin-top:3px}
+        .work-card .expand{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:8px;background:rgba(28,29,28,.7);display:grid;place-items:center;opacity:0;transition:opacity .25s;pointer-events:none}
+        .work-ba,.work-single{position:relative}
+        .work-card:hover .expand{opacity:1}
+        .work-card .expand svg{width:16px;height:16px;stroke:#fff}
+        @media (max-width:900px){.work-card{flex-basis:calc(50% - 12px);max-width:calc(50% - 12px)}}
+        @media (max-width:560px){.work-card{flex-basis:100%;max-width:100%}}
+        @media (max-width:460px){.work-ba img{height:150px}}
+        /* lightbox */
+        .lb{position:fixed;inset:0;z-index:9999;background:rgba(20,21,20,.93);display:none;align-items:center;justify-content:center;padding:24px}
+        .lb.open{display:flex}
+        .lb-box{max-width:1100px;width:100%}
+        .lb-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        .lb-imgs.single{grid-template-columns:1fr;max-width:780px;margin:0 auto}
+        .lb-imgs figure{margin:0;position:relative}
+        .lb-imgs img{width:100%;height:auto;max-height:80vh;object-fit:contain;border-radius:10px;background:#000}
+        .lb-imgs figcaption{position:absolute;top:12px;left:12px;background:rgba(28,29,28,.85);color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:6px}
+        .lb-imgs .is-after figcaption{background:#837669}
+        .lb-cap{text-align:center;color:#fff;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.1rem;margin-top:16px}
+        .lb-x{position:absolute;top:20px;right:24px;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.9rem;line-height:1;border:none;cursor:pointer;transition:background .2s}
+        .lb-x:hover{background:#837669}
+        @media (max-width:640px){.lb-imgs{grid-template-columns:1fr}.lb-imgs img{max-height:40vh}}
+      </style>
+
+      <p style="text-align:center;color:#8b8c8c;font-size:.95rem;margin-bottom:6px">Real projects across the region — every transformation shown <b style="color:#6b6157">before</b> and <b style="color:#6b6157">after</b>.</p>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/patio-autumn-before.jpg" alt="Backyard patio before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/patio-autumn-after.jpg" alt="Backyard patio after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Backyard Patio Restoration</b><span class="desc">Cleaned, re-sanded &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/walkway-flagstone-before.jpg" alt="Flagstone walkway before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/walkway-flagstone-after.jpg" alt="Flagstone walkway after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Flagstone Side Walkway</b><span class="desc">Restored &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/patio-courtyard-before.jpg" alt="Courtyard patio before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/patio-courtyard-after.jpg" alt="Courtyard patio after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Courtyard Patio</b><span class="desc">Wet-look finish</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/stone-step-before.jpg" alt="Stone step and patio before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/stone-step-after.jpg" alt="Stone step and patio after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Stone Step &amp; Patio</b><span class="desc">Restored &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/walkway-yellow-before.jpg" alt="Side walkway before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/walkway-yellow-after.jpg" alt="Side walkway after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Side Walkway</b><span class="desc">Re-sanded &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/patio-yellow-before.jpg" alt="Backyard patio before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/patio-yellow-after.jpg" alt="Backyard patio after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Backyard Patio</b><span class="desc">Colour enhanced &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/walkway-bluepot-before.jpg" alt="Side walkway before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/walkway-bluepot-after.jpg" alt="Side walkway after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Side Walkway</b><span class="desc">Cleaned &amp; sealed</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/landscape-yard-before.jpg" alt="Backyard landscaping before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/landscape-yard-after.jpg" alt="Backyard landscaping after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Landscaping</span><b>Backyard Landscaping</b><span class="desc">Stepping stones &amp; fire pit</span></div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-ba">
+            <figure><img src="assets/projects/poolside-1.jpg" alt="Poolside patio before"><figcaption>Before</figcaption></figure>
+            <figure class="is-after"><img src="assets/projects/poolside-2.jpg" alt="Poolside patio after"><figcaption>After</figcaption></figure>
+          </div>
+          <div class="work-info"><span class="wtag">Sealing</span><b>Poolside Patio</b><span class="desc">Cleaned &amp; sealed</span></div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Lightbox: click any project to expand -->
+    <div id="lb" class="lb" aria-hidden="true">
+      <button class="lb-x" aria-label="Close">&times;</button>
+      <div class="lb-box">
+        <div class="lb-imgs"></div>
+        <div class="lb-cap"></div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var lb = document.getElementById('lb'); if (!lb) return;
+        var box = lb.querySelector('.lb-imgs'), cap = lb.querySelector('.lb-cap');
+        var mag = '<div class="expand"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>';
+        function openCard(card) {
+          var t = card.querySelector('.work-info b');
+          box.innerHTML = '';
+          if (card.querySelector('.work-ba')) {
+            box.classList.remove('single');
+            card.querySelectorAll('.work-ba figure').forEach(function (f) {
+              var s = f.querySelector('img').getAttribute('src');
+              var isAfter = f.classList.contains('is-after');
+              var fc = f.querySelector('figcaption');
+              var lab = fc ? fc.textContent : '';
+              box.insertAdjacentHTML('beforeend', '<figure' + (isAfter ? ' class="is-after"' : '') + '><img src="' + s + '" alt=""><figcaption>' + lab + '</figcaption></figure>');
+            });
+          } else {
+            box.classList.add('single');
+            var s = card.querySelector('img').getAttribute('src');
+            box.insertAdjacentHTML('beforeend', '<figure><img src="' + s + '" alt=""></figure>');
+          }
+          cap.textContent = t ? t.textContent : '';
+          lb.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+        function close() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+        document.querySelectorAll('.work-card').forEach(function (c) {
+          var media = c.querySelector('.work-ba, .work-single');
+          if (media) media.insertAdjacentHTML('beforeend', mag);
+          c.addEventListener('click', function () { openCard(c); });
+        });
+        lb.addEventListener('click', function (e) { if (e.target === lb || e.target.closest('.lb-x')) close(); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+      })();
+    </script>
+  </section>
+
+  <!-- GOOGLE CTA -->
+  <section class="section section--mist section--tight">
+    <div class="wrap">
+      <div class="gcta reveal">
+        <div class="gcta__copy">
+          <span class="eyebrow">We'd Love Your Feedback</span>
+          <h3 style="font-size:clamp(1.5rem,3vw,2.1rem);margin-top:10px">Are you a past customer? Leave us a Google review.</h3>
+          <p style="margin-top:12px">Reviews help future customers see the quality of our work and choose a local contractor with confidence. Thank you for taking a moment!</p>
+          <div class="btn-row" style="margin-top:22px">
+            <!-- TODO: replace href with your Google review short-link -->
+            <a href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID" target="_blank" rel="noopener" class="btn">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="#fff" d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6z"/></svg>
+              Leave a Google Review
+            </a>
+            <a href="contact.html" class="btn btn--ghost">Start Your Project</a>
+          </div>
+        </div>
+        <div class="gcta__score">
+          <svg viewBox="0 0 24 24" width="56" height="56" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+          <div class="stars" style="margin-top:14px">★★★★★</div>
+          <div class="sub">Rate your experience on Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="section ctaband paver-bg">
+    <div class="wrap">
+      <div class="inner">
+        <div class="reveal">
+          <h2>Love what you see?</h2>
+          <p>Let's add your project to the gallery. Get a free quote and let's get started.</p>
+        </div>
+        <div class="btn-row reveal" data-d="1">
+          <a href="contact.html" class="btn btn--on-dark btn--lg">Get a Free Quote</a>
+          <a href="tel:+10000000000" class="btn btn--ghost-dark btn--lg">Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div>
+          <a href="index.html" class="logo"><img class="logo-img logo-img--light" src="assets/sts-logo.png" alt="Seal-Tech Solutions" style="height:52px" /></a>
+          <p class="footer__about">Interlock repair, paver sealing and interlocking installation for homeowners across the Greater Toronto Area, Mississauga, Hamilton &amp; surrounding towns.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.33-.04-1.57-.14-2.88-.14C11.9 2 10 3.66 10 6.7v2.8H7v4h3V22h4z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Google"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1zM12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23zm-6.16-8.9a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88zM12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Company</h4><div class="footer__links"><a href="index.html">Home</a><a href="services.html">Services</a><a href="gallery.html">Our Work</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div></div>
+        <div><h4>Services</h4><div class="footer__links"><a href="services.html#repair">Interlock Repair</a><a href="services.html#sealing">Interlock Sealing</a><a href="services.html#interlocking">Interlocking</a><a href="services.html#landscaping">Landscaping</a><a href="contact.html">Free Quote</a></div></div>
+        <div><h4>Get In Touch</h4><ul class="footer__contact">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+10000000000">(000) 000-0000</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> <a href="mailto:info@sealtechsolutions.ca">info@sealtechsolutions.ca</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Serving the GTA, Mississauga, Hamilton &amp; surrounding area</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Mon–Sat: 8am – 6pm</li>
+        </ul></div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Seal Tech Solutions. All rights reserved.</span>
+        <span>Interlock Repair · Sealing · Interlocking</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <div class="lightbox__inner">
+      <div class="photo photo--ba"><div class="ba-pane"><span class="ba-lab">Before</span></div><div class="ba-pane ba-pane--after"><span class="ba-lab">After</span></div></div>
+      <div class="lightbox__cap">Project</div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

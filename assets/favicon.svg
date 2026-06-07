@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <rect x="0" y="0" width="48" height="48" rx="11" fill="#373938"/>
+  <!-- interlock paver shapes echoing the logo icon -->
+  <path d="M14 12 h13 l-4 7 h-13 z" fill="#8b8c8c"/>
+  <path d="M11 21 h13 l-4 7 h-13 z" fill="#373938" stroke="#8b8c8c" stroke-width="1.4"/>
+  <path d="M25 21 h13 l-4 7 h-13 z" fill="#837669"/>
+  <path d="M14 30 h13 l-4 7 h-13 z" fill="#837669"/>
+</svg>
