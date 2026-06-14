@@ -632,7 +632,8 @@ body.nav-open .scrim { opacity: 1; visibility: visible; }
   .nav-tools .nav-phone span { display: none; }
   .logo-img, .site-header.scrolled .logo-img { height: 38px; }
   .nav {
-    position: fixed; inset: 0 0 0 auto; width: min(86vw, 360px);
+    position: fixed; top: 0; right: 0; left: auto; bottom: auto;
+    width: min(86vw, 360px); height: 100vh; height: 100dvh; overflow-y: auto;
     background: var(--paper); flex-direction: column; align-items: stretch; justify-content: flex-start;
     padding: 100px 26px 40px; gap: 6px; transform: translateX(100%); transition: transform .4s var(--ease);
     box-shadow: var(--shadow-lg); z-index: 95;
@@ -641,9 +642,24 @@ body.nav-open .scrim { opacity: 1; visibility: visible; }
   .nav a { color: var(--text) !important; font-size: 1.1rem; padding: 14px 16px; border-radius: 12px; }
   .nav a:hover, .nav a.active { background: var(--mist); }
   .nav-cta { margin: 14px 0 0; }
-  .nav-cta .btn { width: 100%; }
+  .nav-cta .btn { width: 100%; color: #fff !important; }
   .nav-toggle { display: block; }
   .site-header:not(.scrolled) .nav a { color: var(--text) !important; }
+
+  /* Remove the "Free Quotes" chip over the video on mobile */
+  .hero__chip { display: none; }
+  /* Breathing room under the video before the next section */
+  .hero__visual { margin-bottom: 40px; }
+
+  /* Hide the trust strip (Locally owned / Premium materials / On-time / Satisfaction) on mobile */
+  .trustbar { display: none; }
+
+  /* Keep the hero heading legible over the busy background photo on mobile */
+  .hero h1 { text-shadow: 0 2px 16px rgba(18,19,18,.85), 0 1px 4px rgba(18,19,18,.9); }
+  .hero__bg::before {
+    background:
+      linear-gradient(180deg, rgba(18,19,18,.7) 0%, rgba(18,19,18,.55) 45%, rgba(18,19,18,.7) 100%);
+  }
 
   .cols-2, .cols-3, .split, .split--rev .split__media, .ctaband .inner, .gcta { grid-template-columns: 1fr; }
   .split--rev .split__media { order: 0; }

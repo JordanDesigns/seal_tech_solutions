@@ -161,9 +161,20 @@
               ok.scrollIntoView({ behavior: "smooth", block: "center" });
             }
           } else {
-            alert("Something went wrong sending your request. Please call us instead.");
+            let detail = "";
+            try {
+              const data = await res.json();
+              detail = (data.errors || []).map((x) => x.message).join(" ");
+            } catch {}
+            console.error("Formspree error", res.status, detail);
+            alert(
+              "Something went wrong sending your request" +
+                (detail ? ":\n" + detail : ` (status ${res.status})`) +
+                "\n\nPlease call us instead."
+            );
           }
-        } catch {
+        } catch (err) {
+          console.error("Form network error", err);
           alert("Network error. Please call or email us directly.");
         } finally {
           if (btn) { btn.textContent = original; btn.disabled = false; }
