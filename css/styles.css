@@ -530,6 +530,10 @@ body.nav-open .nav-toggle span, body.nav-open .nav-toggle::before, body.nav-open
 
 /* ----------  Split content  ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px,5vw,70px); align-items: center; }
+/* Landscaping: top-align so the checklist card lines up with the heading (no centered gap above it) */
+#landscaping .split { align-items: start; }
+/* The landscaping checklist card has a white bg, so its heading must be dark (the section--ink rule turns headings white = invisible here) */
+#landscaping .card h3 { color: var(--ink); }
 .split--rev .split__media { order: 2; }
 .split__media { position: relative; }
 .split__media .photo { aspect-ratio: 5/4; border-radius: var(--r-xl); }

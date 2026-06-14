@@ -139,6 +139,16 @@
   /* ---- Quote form (Formspree) ---- */
   const form = document.querySelector("#quote-form");
   if (form) {
+    // The success banner lives in the surrounding .form-card, not inside <form>.
+    const successEl = (form.closest(".form-card") || document).querySelector(".form-success");
+    const showSuccess = () => {
+      form.reset();
+      form.style.display = "none";
+      if (successEl) {
+        successEl.classList.add("show");
+        successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    };
     form.addEventListener("submit", async (e) => {
       const endpoint = form.getAttribute("action") || "";
       // If a real Formspree endpoint is configured, let it submit AJAX-style.
@@ -154,12 +164,7 @@
             headers: { Accept: "application/json" },
           });
           if (res.ok) {
-            form.reset();
-            const ok = form.querySelector(".form-success");
-            if (ok) {
-              ok.classList.add("show");
-              ok.scrollIntoView({ behavior: "smooth", block: "center" });
-            }
+            showSuccess();
           } else {
             let detail = "";
             try {
@@ -186,12 +191,7 @@
       // Otherwise (placeholder endpoint) just show the success message as a demo.
       else {
         e.preventDefault();
-        const ok = form.querySelector(".form-success");
-        if (ok) {
-          ok.classList.add("show");
-          form.reset();
-          ok.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
+        showSuccess();
       }
     });
   }

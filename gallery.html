@@ -6,6 +6,27 @@
   <title>Our Work | Seal-Tech Solutions</title>
   <meta name="description" content="Browse a gallery of completed interlock driveways, patios, walkways, repairs and sealing projects by Seal-Tech Solutions across the Greater Toronto Area, Mississauga, Hamilton & surrounding towns and cities." />
   <meta name="theme-color" content="#373938" />
+  <link rel="canonical" href="https://www.sealtechsolutions.ca/gallery.html" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Seal-Tech Solutions" />
+  <meta property="og:locale" content="en_CA" />
+  <meta property="og:url" content="https://www.sealtechsolutions.ca/gallery.html" />
+  <meta property="og:title" content="Our Work | Seal-Tech Solutions" />
+  <meta property="og:description" content="Browse completed interlock driveways, patios, walkways, repairs and sealing projects by Seal-Tech Solutions across the GTA, Mississauga &amp; Hamilton." />
+  <meta property="og:image" content="https://www.sealtechsolutions.ca/assets/hero-bg.jpg" />
+  <meta property="og:image:width" content="2205" />
+  <meta property="og:image:height" content="1240" />
+  <meta property="og:image:alt" content="Completed interlock paving project by Seal-Tech Solutions" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Our Work | Seal-Tech Solutions" />
+  <meta name="twitter:description" content="A gallery of completed interlock driveways, patios, walkways and sealing projects across the GTA, Mississauga &amp; Hamilton." />
+  <meta name="twitter:image" content="https://www.sealtechsolutions.ca/assets/hero-bg.jpg" />
+
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
@@ -190,16 +211,20 @@
           if (card.querySelector('.work-ba')) {
             box.classList.remove('single');
             card.querySelectorAll('.work-ba figure').forEach(function (f) {
-              var s = f.querySelector('img').getAttribute('src');
+              var img = f.querySelector('img');
+              var s = img.getAttribute('src');
+              var alt = img.getAttribute('alt') || '';
               var isAfter = f.classList.contains('is-after');
               var fc = f.querySelector('figcaption');
               var lab = fc ? fc.textContent : '';
-              box.insertAdjacentHTML('beforeend', '<figure' + (isAfter ? ' class="is-after"' : '') + '><img src="' + s + '" alt=""><figcaption>' + lab + '</figcaption></figure>');
+              box.insertAdjacentHTML('beforeend', '<figure' + (isAfter ? ' class="is-after"' : '') + '><img src="' + s + '" alt="' + alt + '"><figcaption>' + lab + '</figcaption></figure>');
             });
           } else {
             box.classList.add('single');
-            var s = card.querySelector('img').getAttribute('src');
-            box.insertAdjacentHTML('beforeend', '<figure><img src="' + s + '" alt=""></figure>');
+            var cimg = card.querySelector('img');
+            var s = cimg.getAttribute('src');
+            var alt = cimg.getAttribute('alt') || (t ? t.textContent : '');
+            box.insertAdjacentHTML('beforeend', '<figure><img src="' + s + '" alt="' + alt + '"></figure>');
           }
           cap.textContent = t ? t.textContent : '';
           lb.classList.add('open');
