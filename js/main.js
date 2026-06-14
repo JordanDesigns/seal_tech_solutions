@@ -164,7 +164,10 @@
             let detail = "";
             try {
               const data = await res.json();
-              detail = (data.errors || []).map((x) => x.message).join(" ");
+              detail =
+                (data.errors || []).map((x) => x.message).join(" ") ||
+                data.error ||
+                "";
             } catch {}
             console.error("Formspree error", res.status, detail);
             alert(
