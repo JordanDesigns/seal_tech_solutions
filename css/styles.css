@@ -527,6 +527,8 @@ body.nav-open .nav-toggle span, body.nav-open .nav-toggle::before, body.nav-open
 .crumbs { display: flex; gap: 8px; font-size: .85rem; color: var(--on-dark-mute); font-weight: 600; }
 .crumbs a:hover { color: var(--accent); }
 .crumbs .sep { opacity: .5; }
+/* Hide the "Home / Page" breadcrumb on desktop only; keep it on mobile (≤860px) */
+@media (min-width: 861px) { .crumbs { display: none; } }
 
 /* ----------  Split content  ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px,5vw,70px); align-items: center; }
@@ -646,9 +648,13 @@ body.nav-open .scrim { opacity: 1; visibility: visible; }
   .nav a { color: var(--text) !important; font-size: 1.1rem; padding: 14px 16px; border-radius: 12px; }
   .nav a:hover, .nav a.active { background: var(--mist); }
   .nav-cta { margin: 14px 0 0; }
-  .nav-cta .btn { width: 100%; color: #fff !important; }
+  .nav-cta .btn { width: 100%; }
   .nav-toggle { display: block; }
-  .site-header:not(.scrolled) .nav a { color: var(--text) !important; }
+  /* The dropdown panel is always light, so links stay dark and the CTA button
+     text stays white in EVERY header state — whether the page is scrolled to the
+     very top or not. (State-independent so the button never goes dark at the top.) */
+  .site-header .nav a:not(.btn) { color: var(--text) !important; }
+  .site-header .nav .nav-cta .btn { color: #fff !important; }
 
   /* Remove the "Free Quotes" chip over the video on mobile */
   .hero__chip { display: none; }
